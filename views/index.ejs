@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/style.css">
+    <title>Aurisfy</title>
+</head>
+<body>
+    
+  
+  <aside>
+    <div class="head">
+        <h1>
+         Aurisfy
+        </h1>
+    </div>
+ 
+
+    <nav>
+        <ul>
+            <li>
+              <a href="/query?q=albums">
+                <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35">
+                  <path d="M486-333q41 0 70-28.42T585-431v-252h116v-60H545v237q-11-9-26.319-14-15.319-5-32.681-5-39.06 0-66.03 27.366t-26.97 67Q393-391 419.97-362T486-333ZM260-200q-24 0-42-18t-18-42v-560q0-24 18-42t42-18h560q24 0 42 18t18 42v560q0 24-18 42t-42 18H260Zm0-60h560v-560H260v560ZM140-80q-24 0-42-18t-18-42v-620h60v620h620v60H140Zm120-740v560-560Z"/>
+                </svg>
+                <p>Albums</p>
+              </a>
+            </li>
+            <li>
+                <a href="/query?q=playlists">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#000000" viewBox="0 0 256 256">
+                    <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+                  </svg>
+                  <p>Playlists</p>
+                </a>
+            </li>
+            <li>
+                <a href="/favorites">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#000000" viewBox="0 0 256 256"><path d="M223,57a58.07,58.07,0,0,0-81.92-.1L128,69.05,114.91,56.86A58,58,0,0,0,33,139l89.35,90.66a8,8,0,0,0,11.4,0L223,139a58,58,0,0,0,0-82Zm-11.35,70.76L128,212.6,44.3,127.68a42,42,0,0,1,59.4-59.4l.2.2,18.65,17.35a8,8,0,0,0,10.9,0L152.1,68.48l.2-.2a42,42,0,1,1,59.36,59.44Z"></path></svg>
+                  <p>Favorites</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+  </aside>
+
+
+ 
+<section>
+
+ <div class="search_bar">
+ <% if(  data[0].type === 'playlist') { %>
+  <input type="text" value="" id="FindInPlaylistInput" placeholder="Search in Playlists">
+ <% } else if ( data[0].type === 'album') { %>
+  <input type="text" value="" id="FindInPlaylistInput" placeholder="Search in Albums">
+  <% } %>
+ </div>
+
+
+
+
+
+<div class="audio_cards">
+
+  <% if( data.length ){ %>
+            
+          <% if ( data[0].type === 'playlist') { %>
+               
+
+       
+       <% data.forEach((d) => { %>
+        <div class="card" data-id="<%=d.playlist_name%>">
+            <div class="card_cover">
+             <img src="<%=d.playlist_cover%>" alt="">
+             <button class="openTemplate">
+                <a href="/playlist/<%=d.playlistId%>">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30">
+                    <path d="M320-203v-560l440 280-440 280Zm60-280Zm0 171 269-171-269-171v342Z"/>
+                    </svg>
+                </a>
+               </button>
+            </div>
+            <div class="card_bottom">
+               <div class="card_details">
+                <h4><%=d.playlist_name%></h4>
+
+              
+                  <div class="artists">
+
+                    <% if (d.playlist_features) { %>
+                      
+                      <% d.playlist_features.forEach((f) => { %>
+                        <a href="/artist/<%=f.id%>"><%=f.artist%></a>
+                      <% })%>
+
+                   <% } %>
+
+                   
+                    </div>
+               
+
+               </div>
+            </div>
+        </div>
+
+        <% }) %>
+
+        <% } else if ( data[0].type === 'album' ) { %>
+
+          <% data.forEach((d) => { %>
+            <div class="card" data-id="<%=d.album_name%>">
+                <div class="card_cover">
+                 <img src="<%=d.album_cover%>" alt="">
+                 <button class="openTemplate">
+                    <a href="/album/<%=d.albumId%>">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30">
+                        <path d="M320-203v-560l440 280-440 280Zm60-280Zm0 171 269-171-269-171v342Z"/>
+                        </svg>
+                    </a>
+                   </button>
+                </div>
+                <div class="card_bottom">
+                   <div class="card_details">
+                    <h4><%=d.album_name%></h4>
+                   </div>
+                </div>
+            </div>
+    
+            <% }) %>
+    
+        <%}%>
+
+   <% } %>
+  
+
+</div>
+
+
+
+
+</section>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audioCards = document.querySelector(".audio_cards");
+      const dataAttribute = audioCards.getAttribute("data-playlist");
+      const data = JSON.parse(dataAttribute);
+  
+      console.log(data);
+  
+      // Now you can access the 'data' array in your client-side code
+    });
+  </script>
+  
+
+</body>
+</html>
