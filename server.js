@@ -1,10 +1,10 @@
 const express = require('express');
-const ejs = require('ejs');
+
 const server = express();
 
 const playlists = require('./playlists');
-
-const albums = require('./albums')
+const albums = require('./albums');
+const tracks = require('./tracks');
 
 
 const Port =  process.env.Port || 3000
@@ -20,7 +20,7 @@ server.get('/', (req, res) => {
 
 server.get('/playlist/:id', (req, res) => {
 
-     const playlistID = JSON.parse(req.params.id)
+     const playlistID = JSON.stringify(req.params.id)
 
      const findPlaylist = playlists.find((p) => p.playlistId === playlistID)
     // console.log(findPlaylist)
@@ -29,7 +29,7 @@ server.get('/playlist/:id', (req, res) => {
 })
 server.get('/album/:id', (req, res) => {
 
-     const albumID = JSON.parse(req.params.id)
+     const albumID = req.params.id
 
      const findAlbum = albums.find((p) => p.albumId === albumID)
     // console.log(findPlaylist)
@@ -37,6 +37,13 @@ server.get('/album/:id', (req, res) => {
 
 })
 
+server.get('/track/:id', (req, res) => {
+     const id = req.params.id 
+
+     const findTrack = tracks.find((t) => t.id === id);
+
+    findTrack ? res.render('track_template', { findTrack }) : res.sendStatus(400);
+})
 
 server.get('/query', (req, res) => {
   const query = req.query.q 

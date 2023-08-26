@@ -42,9 +42,9 @@
           <div class="audio_details">
 
             <% if ( data.type === 'playlist' ) { %>
-              <a href="/track/trackId" class="audioName"> <%=data.playlist_audios[0].name%> </a>
+              <a href="/track/<%=data.playlist_audios[0].id%>" class="audioName"> <%=data.playlist_audios[0].name%> </a>
              <% } else if (  data.type === 'album') { %>
-              <a href="/track/trackId" class="audioName"> <%=data.album_audios[0].name%> </a>
+              <a href="/track/<%=data.album_audios[0].id%>" class="audioName"> <%=data.album_audios[0].name%> </a>
              <%}%>
 
 
@@ -183,7 +183,7 @@
 
                 <div class="card">
                     <div class="card_details">
-                     <a href="/track/trackId"> <%=d.name%> </a>
+                     <a href="/track/<%=d.id%>"> <%=d.name%> </a>
     
                      <div class="artists">
                       <%d.authors.forEach((a) =>{ %>
@@ -218,7 +218,7 @@
 
                 <div class="card">
                     <div class="card_details">
-                     <a href="/track/trackId"> <%=d.name%> </a>
+                     <a href="/track/<%=d.id%>"> <%=d.name%> </a>
     
                      <div class="artists">
                       <%d.authors.forEach((a) =>{ %>
