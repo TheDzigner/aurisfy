@@ -83,11 +83,11 @@
 
        
        <% data.forEach((d) => { %>
-        <div class="card" data-id="<%=d.playlist_name%>">
+        <div class="card" data-id="<%=d.playlist_title%>">
             <div class="card_cover">
              <img src="<%=d.playlist_cover%>" alt="">
              <button class="openTemplate">
-                <a href="/playlist/<%=d.playlistId%>">
+                <a href="/playlist/<%=d.playlist_id%>">
                     <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30">
                     <path d="M320-203v-560l440 280-440 280Zm60-280Zm0 171 269-171-269-171v342Z"/>
                     </svg>
@@ -96,7 +96,7 @@
             </div>
             <div class="card_bottom">
                <div class="card_details">
-                <h4><%=d.playlist_name%></h4>
+                <h4><%=d.playlist_title%></h4>
 
               
                   <div class="artists">

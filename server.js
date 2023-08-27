@@ -20,11 +20,11 @@ server.get('/', (req, res) => {
 
 server.get('/playlist/:id', (req, res) => {
 
-     const playlistID = JSON.stringify(req.params.id)
+     const playlistID = req.params.id
 
-     const findPlaylist = playlists.find((p) => p.playlistId === playlistID)
-    // console.log(findPlaylist)
-     res.render('template', { data : findPlaylist, title : `${findPlaylist.playlist_name}`})
+     const findPlaylist = playlists.find((p) => p.playlist_id === playlistID)
+    console.log(findPlaylist)
+     res.render('template', { data : findPlaylist, title : `${findPlaylist.playlist_title}`})
 
 })
 server.get('/album/:id', (req, res) => {

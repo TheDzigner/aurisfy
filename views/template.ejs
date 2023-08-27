@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/template.css">
-    <title> <%=title%> </title>
+    <title>  </title>
 </head>
 <body> 
     
@@ -31,7 +31,7 @@
           <div class="audio_cover">
             
            <% if ( data.type === 'playlist' ) { %>
-            <img src="<%=data.playlist_audios[0].cover%>" alt="">
+            <img src="<%=data.playlist_tracks[0].cover%>" alt="">
            <% } else if (  data.type === 'album') { %>
             <img src="<%=data.album_cover%>" alt="">
            <%}%>
@@ -42,7 +42,7 @@
           <div class="audio_details">
 
             <% if ( data.type === 'playlist' ) { %>
-              <a href="/track/<%=data.playlist_audios[0].id%>" class="audioName"> <%=data.playlist_audios[0].name%> </a>
+              <a href="/track/" class="audioName"> </a>
              <% } else if (  data.type === 'album') { %>
               <a href="/track/<%=data.album_audios[0].id%>" class="audioName"> <%=data.album_audios[0].name%> </a>
              <%}%>
@@ -53,7 +53,7 @@
 
               <% if ( data.type === 'playlist' ) { %>
                 
-                <% data.playlist_audios[0].authors.forEach((a) => { %>
+                <% data.playlist_tracks[0].authors.forEach((a) => { %>
                      <a href="/artist/<%=a.id%>"><%=a.artist%></a>
                 <% })%>
 
@@ -105,7 +105,7 @@
               </button>
 
               <% if ( data.type === 'playlist' ) { %>
-                <audio src="<%=data.playlist_audios[0].src%>" id="audio"></audio>
+                <audio src="<%=data.playlist_tracks[0].src%>" id="audio"></audio>
                <% } else if (  data.type === 'album') { %>
                 <audio src="<%=data.album_audios[0].src%>" id="audio"></audio>
                <%}%>
@@ -142,8 +142,8 @@
 
           <% if ( data.type === 'playlist' ) { %>
             <h3><%=data.type%></h3>
-            <h5> <%=data.playlist_name%></h5>
-            <p> <%=data.playlist_audios.length%> Songs </p>
+            <h5> <%=data.playlist_title%></h5>
+            <p> <%=data.playlist_tracks.length%> Songs </p>
            <% } else if (  data.type === 'album') { %>
             <h3><%=data.type%></h3>
             <h5> <%=data.album_name%></h5>
@@ -180,7 +180,7 @@
             <% if ( data.type === 'playlist' ) { %>
 
              
-              <% data.playlist_audios.forEach((d) => { %>
+              <% data.playlist_tracks.forEach((d) => { %>
 
 
                 <div class="card">
@@ -191,6 +191,7 @@
                       <%d.authors.forEach((a) =>{ %>
                         <a href="/artist/<%=a.id%>"> <%=a.artist%> </a> 
                          <%})%>
+                         
                      </div>
                       
                     </div>
@@ -231,6 +232,11 @@
                       <%d.authors.forEach((a) =>{ %>
                         <a href="/artist/<%=a.id%>"> <%=a.artist%> </a> 
                          <%})%>
+                          <% if (d.features.length) { %>
+                              <% d.features.forEach(f => { %>
+                           <a href="/artist/<%=f.id%>"> <%=f.artist%> </a> 
+                              <% }) %>
+                          <% } %>
                      </div>
                     </div>
                  
@@ -354,7 +360,7 @@
           cards.forEach((card, index) => {
             const play_btn = card.querySelector('.play_btn');
             const favBtn = card.querySelector('.favBtn');
-            const shareBtn = card.querySelector('.shareBtn');
+            const shareTrackBtn = card.querySelector('.shareBtn');
 
             favBtn.addEventListener('click',function(e){
                          e.preventDefault()
@@ -362,7 +368,7 @@
                         e.stopPropagation()
 
                         if (data.type === 'playlist') {
-                          const { name, src , authors, cover} = data.playlist_audios[index]
+                          const { name, src , authors, cover} = data.playlist_tracks[index]
                              addToFav(  name, src, authors, cover )
                         }else if(data.type === 'album'){
                           const { name, src , authors, cover} = data.album_audios[index]
@@ -371,18 +377,18 @@
                         
             })
             
-            shareBtn.addEventListener('click',function(e){
+            shareTrackBtn.addEventListener('click',function(e){
               e.preventDefault()
               e.stopImmediatePropagation()
               e.stopPropagation()
               if (data.type === 'playlist') {
-                        const trackId = this.dataset.id 
-                       // console.log(trackId)
-                       shareTrack(trackId)
+                          const trackId = this.dataset.id
+                          const { name, authors } = data.playlist_tracks[index]
+                             shareTrack( trackId, name, authors )
                         }else if(data.type === 'album'){
-                          const trackId = this.dataset.id 
-                         shareTrack(trackId)
-                          //console.log(trackId)
+                          const trackId = this.dataset.id
+                          const { name, authors } = data.album_audios[index]
+                             shareTrack(trackId,  name, authors )
                         }
 
             })
@@ -404,9 +410,9 @@
 
                 if (data.type === 'playlist') {
 
-                 audio.src = data.playlist_audios[currentIndex].src;
+                 audio.src = data.playlist_tracks[currentIndex].src;
 
-                 const { name, src , authors, cover} = data.playlist_audios[currentIndex]
+                 const { name, src , authors, cover} = data.playlist_tracks[currentIndex]
 
                  audio.src = src
 
@@ -464,13 +470,21 @@
               localStorage.setItem('favorites',JSON.stringify(favorites))
              }
 
-           async function shareTrack(trackId){
-                    
+
+
+           async function shareTrack(trackId, name, authors){
+            let author = ''
+             const authorArr = authors.forEach((a) => {
+               author += a.artist
+             })
+
+            // console.log(author)
            const data = { 
-            title : `Sharing track with id : ${trackId}`,
+            title : `Listening to ${name} by ${author.toLocaleUpperCase()}, on Aurisfy`,
             url : `/track/${trackId}`
            } 
-
+          
+        //   console.log(data)
             try {
              navigator.share(data)
 
@@ -490,7 +504,7 @@
 
            
               if (data.type === 'playlist') {
-                const randomIndex = Math.floor(Math.random() * data.playlist_audios.length)
+                const randomIndex = Math.floor(Math.random() * data.playlist_tracks.length)
 
                 cards.forEach((card) => {
                         card.classList.remove('active');
@@ -502,7 +516,7 @@
                 cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
                  
 
-                const { name, src , authors, cover} = data.playlist_audios[randomIndex]
+                const { name, src , authors, cover} = data.playlist_tracks[randomIndex]
 
                 audio.src = src
 
@@ -563,7 +577,7 @@
               
               if (data.type === 'playlist') {
             
-                     currentIndex < data.playlist_audios.length -1 ? currentIndex++ : currentIndex = 0
+                     currentIndex < data.playlist_tracks.length -1 ? currentIndex++ : currentIndex = 0
                      cards.forEach((card) => {
                         card.classList.remove('active');
                         card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
@@ -573,7 +587,7 @@
                        cards[currentIndex].classList.add('active')
                        cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
                        
-                       const { name, src , authors, cover} = data.playlist_audios[currentIndex]
+                       const { name, src , authors, cover} = data.playlist_tracks[currentIndex]
 
                         audio.src = src
 
@@ -647,7 +661,7 @@
             if (shuffle) {
 
                   if (data.type === 'playlist') {
-               const randomIndex = Math.floor(Math.random() * data.playlist_audios.length)
+               const randomIndex = Math.floor(Math.random() * data.playlist_tracks.length)
 
                cards.forEach((card) => {
                         card.classList.remove('active');
@@ -658,7 +672,7 @@
                 cards[randomIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
 
-                const { name, src , authors, cover} = data.playlist_audios[randomIndex]
+                const { name, src , authors, cover} = data.playlist_tracks[randomIndex]
 
                  audio.src = src
 
@@ -719,7 +733,7 @@
  
                    if (data.type === 'playlist') {
                     
-                    currentIndex > 0 ? currentIndex-- : currentIndex = data.playlist_audios.length -1 
+                    currentIndex > 0 ? currentIndex-- : currentIndex = data.playlist_tracks.length -1 
  
                     cards.forEach((card) => {
                         card.classList.remove('active');
@@ -730,7 +744,7 @@
                     cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
 
-                    const { name, src , authors, cover} = data.playlist_audios[currentIndex]
+                    const { name, src , authors, cover} = data.playlist_tracks[currentIndex]
 
                     audio.src = src
 
@@ -847,7 +861,7 @@
                 if (shuffle) {
 
                         if (data.type === 'playlist') {
-                     const randomIndex = Math.floor(Math.random() * data.playlist_audios.length)
+                     const randomIndex = Math.floor(Math.random() * data.playlist_tracks.length)
                      cards.forEach((card) => {
                         card.classList.remove('active');
                         card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
@@ -855,7 +869,7 @@
                        cards[randomIndex].classList.add('active')
                         cards[randomIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
-                     const { name, src , authors} = data.playlist_audios[randomIndex]
+                     const { name, src , authors} = data.playlist_tracks[randomIndex]
 
                      audio.src = src
 
@@ -909,7 +923,7 @@
  
                      
                        if (data.type === 'playlist') {
-                        currentIndex < data.playlist_audios.length -1 ? currentIndex++ : currentIndex = 0
+                        currentIndex < data.playlist_tracks.length -1 ? currentIndex++ : currentIndex = 0
                         cards.forEach((card) => {
                         card.classList.remove('active');
                         card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
@@ -918,7 +932,7 @@
         
                        cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
-                      const { name, src , authors} = data.playlist_audios[currentIndex]
+                      const { name, src , authors} = data.playlist_tracks[currentIndex]
 
                        audio.src = src
 

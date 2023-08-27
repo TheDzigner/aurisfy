@@ -4,19 +4,21 @@ const albums = [
       type : 'album',
       albumId :"voO54ghW2YlQ",
       album_name : 'Rocket Power', 
+      album_authors : [ {
+        artist : 'quavo',
+        id : 'dibbX1RgHFQB'
+    }],
       album_cover :'/data/albums/rocket_power/rocket_power_cover.jpeg',
       favorite : false, 
       album_audios : [
          
          {
            name : 'Fueled Up', 
-
-           authors : [
-            {
-                artist : 'quavo',
-                id : 'dibbX1RgHFQB'
-            }
-          ], 
+           authors : [ {
+            artist : 'quavo',
+            id : 'dibbX1RgHFQB'
+        }],
+           features : [], 
 
            cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
            src : '/data/albums/rocket_power/01-Quavo-Fueled-Up-(BazeMack.com).mp3',
@@ -25,17 +27,22 @@ const albums = [
          },
          {
             name : 'Patty Cake', 
-            authors : [
+            authors : [ {
+                artist : 'quavo',
+                id : 'dibbX1RgHFQB'
+            }],
+               features : [
                 {
                     artist : 'quavo',
                     id : 'dibbX1RgHFQB'
                 },
                 {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
-                 }
-          ], 
-        
+                    
+                     artist : 'takeoff',
+                     id : 'SMuaSBXMmLej'
+                     
+                }
+              ], 
            cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
            src : '/data/albums/rocket_power/02-Quavo-Patty-Cake-ft-Takeoff-(BazeMack.com).mp3',
            id : "e4ElgCT5DqT9",
@@ -50,6 +57,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
           ], 
+           features : [],
           
            cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
            src : '/data/albums/rocket_power/03-Quavo-Mama-Told-Me-(BazeMack.com).mp3',
@@ -65,6 +73,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
+         features : [],
          
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/04-Quavo-Who-Wit-Me-(BazeMack.com).mp3',
@@ -80,7 +89,10 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+          features : [ {
+            artist : 'takeoff',
+            id : 'SMuaSBXMmLej'
+         }],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/05-Quavo-Narkedo-Speaks-(BazeMack.com).mp3',
           id : "NmZMFD5WNs5n",
@@ -95,7 +107,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+         features : [],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/06-Quavo-Hold-Me-(BazeMack.com).mp3',
           id : "Z9lkIKhRwPyp",
@@ -110,7 +122,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+         features : [],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/07-Quavo-Where-Can-I-Start-(BazeMack.com).mp3',
           id : 'VEP76yZxNAxP',
@@ -125,7 +137,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+         features : [],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/08-Quavo-Wall-To-Wall-(BazeMack.com).mp3',
           id : "QPkfKmDTW92Q",
@@ -134,17 +146,16 @@ const albums = [
          },
          {
           name : 'Turn Yo Clip Up', 
-          authors : [
+          authors: [
             {
                 artist : 'quavo',
                 id : 'dibbX1RgHFQB'
-            },
-            {
-                artist : 'future',
-                id : 'CnIUoDmPKO1d'
-             }
+            }
          ], 
-         
+          features : [ {
+            artist : 'future',
+            id : 'CnIUoDmPKO1d'
+         }],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/09-Quavo-Turn-Yo-Clic-Up-ft-Future-(BazeMack.com).mp3',
           id : 'libPqYCGl4wz',
@@ -158,6 +169,9 @@ const albums = [
                 artist : 'quavo',
                 id : 'dibbX1RgHFQB'
             },
+           
+         ], 
+         features : [
             {
                 artist : 'takeoff',
                 id : 'SMuaSBXMmLej'
@@ -166,8 +180,7 @@ const albums = [
                 artist : 'future',
                 id : 'CnIUoDmPKO1d'
              }
-         ], 
-         
+         ],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/10-Quavo-Back-Where-It-Begins-ft-Takeoff-Future-(BazeMack.com).mp3',
           id : 'zri36oqNbiqp',
@@ -182,7 +195,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+         features : [],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/11-Quavo-1111-(BazeMack.com).mp3',
           id : 'zZz6ctGGIbTi',
@@ -197,7 +210,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+          features :[],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/12-Quavo-Galaxy-(BazeMack.com).mp3',
           id : 'cECjZXu351jC',
@@ -212,7 +225,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+          features : [],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/13-Quavo-Disciples-(BazeMack.com).mp3',
           id : 'TuhMBLzKb1TJ',
@@ -225,13 +238,13 @@ const albums = [
             {
                 artist : 'quavo',
                 id : 'dibbX1RgHFQB'
-            },
-            {
-                artist : 'young thug',
-                id : 'cMFaECRs0cfA'
-             }
+            }
+          
          ], 
-         
+          features : [  {
+            artist : 'young thug',
+            id : 'cMFaECRs0cfA'
+         }],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/14-Quavo-Focused-ft-Young-Thug-(BazeMack.com).mp3',
           id : '5OsgEfr2kDNo',
@@ -244,13 +257,13 @@ const albums = [
             {
                 artist : 'quavo',
                 id : 'dibbX1RgHFQB'
-            },
-            {
-                artist : 'hunxho-babydrill',
-                id : 'AjY07eVmhOd1'
-             }
+            }
+          
          ], 
-         
+          features : [  {
+            artist : 'hunxho-babydrill',
+            id : 'AjY07eVmhOd1'
+         }],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/15-Quavo-Stain-ft-Hunxho-BabyDrill-(BazeMack.com).mp3',
           id : '4ZQn8qCoarBH',
@@ -265,7 +278,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+          features : [],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/16-Quavo-Not-Done-Yet-(BazeMack.com).mp3',
           id :'jArUSA3PCYLI',
@@ -280,7 +293,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+          features : [],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/17-Quavo-Rocket-Power-(BazeMack.com).mp3',
           id : '7UcnfdQnb626',
@@ -295,7 +308,7 @@ const albums = [
                 id : 'dibbX1RgHFQB'
             }
          ], 
-         
+           features : [],
           cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
           src : '/data/albums/rocket_power/18-Quavo-Greatness-(BazeMack.com).mp3',
           id : 'GVV6v7Zvls9t',
@@ -312,6 +325,10 @@ const albums = [
         type : 'album',
         albumId : "r3o4skZaUxWG",
         album_name : 'A Gift & A Curse', 
+        album_authors : [ {
+            artist : 'gunna',
+            id : 'VSoiq8E4Lk34'
+         }],
         album_cover :'/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
         favorite : false, 
         album_audios : [
@@ -325,7 +342,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
             ], 
-  
+            features : [],
              cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
              src : '/data/albums/a_gift_&_a_curse/01-Gunna-back-at-it-(BazeMack.com).mp3',
              id : 'Smn0ck60gMMo',
@@ -339,7 +356,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
             ], 
-          
+            features : [],
              cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
              src : '/data/albums/a_gift_&_a_curse/02-Gunna-back-to-the-moon-(BazeMack.com).mp3',
              id : 'h5bit5uqA569',
@@ -353,7 +370,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
             ], 
-            
+            features : [],
              cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
              src : '/data/albums/a_gift_&_a_curse/03-Gunna-idk-nomore-(BazeMack.com).mp3',
              id : 'PAXNiGfLMNFn',
@@ -367,7 +384,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/04-Gunna-paybach-(BazeMack.com).mp3',
             id :'jFTZJruYqPHU' ,
@@ -382,7 +399,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/05-Gunna-ca-h-hit-(BazeMack.com).mp3',
             id : 'bZ8W9KjeWxVH',
@@ -397,7 +414,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/06-Gunna-fukumean-(BazeMack.com).mp3',
             id : 'jY8E197KNRc9',
@@ -412,7 +429,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/07-Gunna-rodeo-dr-(BazeMack.com).mp3',
             id : 'yJivVmhkzdO1',
@@ -427,7 +444,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/08-Gunna-bottom-(BazeMack.com).mp3',
             id : 'S6ENajVzdUT5',
@@ -442,7 +459,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/09-Gunna-p-angels-(BazeMack.com).mp3',
             id : 'WEOrf7xJ6icI',
@@ -457,7 +474,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/10-Gunna-born-rich-(BazeMack.com).mp3',
             id : 'QHl9QjCyf8WE',
@@ -472,7 +489,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/11-Gunna-go-crazy-(BazeMack.com).mp3',
             id : 'oBfCHXgleqKu',
@@ -487,7 +504,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/12-Gunna-bread-butter-(BazeMack.com).mp3',
             id : 'DnlyZQp1Arat',
@@ -502,7 +519,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/13-Gunna-i-was-just-thinking-(BazeMack.com).mp3',
             id : 'byIpxvIzFLlH',
@@ -517,7 +534,7 @@ const albums = [
                     id : 'VSoiq8E4Lk34'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
             src : '/data/albums/a_gift_&_a_curse/14-Gunna-alright-(BazeMack.com).mp3',
             id : 'rUt2tiSz54Zc',
@@ -542,23 +559,14 @@ const albums = [
   
              authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
+                   artist : 'migos',
+                   id : '6g4ARBvMyxbP'
                 },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
-                 },
-                 {
-                    artist : 'dj khaled',
-                    id : '2UiA17If6W9C'
-                 }
             ], 
-  
+            features : [  {
+                artist : 'dj khaled',
+                id : '2UiA17If6W9C'
+             }],
              cover : '/data/albums/culture_1/culture_1.jpeg',
              src : '/data/albums/culture_1/01-Migos-Culture-ft-DJ-Khaled-(BazeMack.com).mp3',
              id : 'Uwg5j1ihrhmu',
@@ -568,19 +576,11 @@ const albums = [
               name : 'T-Shirt', 
               authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
             ], 
-          
+             features : [],
              cover : '/data/albums/culture_1/culture_1.jpeg',
              src : '/data/albums/culture_1/02-Migos-T-Shirt-(BazeMack.com).mp3',
              id :'FpgIM1zun1qo',
@@ -590,19 +590,11 @@ const albums = [
              name : 'Call Casting', 
              authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
             ], 
-            
+             features : [],
             cover : '/data/albums/culture_1/culture_1.jpeg',
              src : '/data/albums/culture_1/03-Migos-Call-Casting-(BazeMack.com).mp3',
              id :'mPkgu1J9yxTc',
@@ -612,23 +604,14 @@ const albums = [
             name : 'Bad And Boujee', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
-                 },
-                 {
-                    artist : 'lil uzi vert',
-                    id : '4GoIBKUDGdlH'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
            ], 
-           
+             features : [  {
+                artist : 'lil uzi vert',
+                id : '4GoIBKUDGdlH'
+             }],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/04-Migos-Bad-and-Boujee-ft-Lil-Uzi-Vert-(BazeMack.com).mp3',
             id : 'n8mBy66Yj4OD',
@@ -639,19 +622,11 @@ const albums = [
             name : 'Get Right Witcha',
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
            ], 
-           
+            features : [],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/05-Migos-Get-Right-Witcha-(BazeMack.com).mp3',
             id : 'FypgX9Zs5NY3',
@@ -662,23 +637,15 @@ const albums = [
             name : 'Slippery', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
-                 },
-                 {
-                    artist : 'gucci mane',
-                    id : 'VSFnJ0KHm5J7'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
+                
            ], 
-           
+             features : [ {
+                artist : 'gucci mane',
+                id : 'VSFnJ0KHm5J7'
+             }],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/06-Migos-Slippery-ft-Gucci-Mane-(BazeMack.com).mp3',
             id : 'oDLt3NZL1SfF',
@@ -689,19 +656,11 @@ const albums = [
             name : 'Big On Big', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
            ], 
-           
+            features : [],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/07-Migos-Big-On-Big-(BazeMack.com).mp3',
             id : 'WPIoezc8PUZa',
@@ -712,19 +671,11 @@ const albums = [
             name : 'What The Price', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
            ], 
-           
+            features : [],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/08-Migos-What-The-Price-(BazeMack.com).mp3',
             id : 'Mpdtlxv9shHw',
@@ -735,19 +686,11 @@ const albums = [
             name : 'Brown Paper Bag', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
            ], 
-           
+           features : [],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/09-Migos-Brown-Paper-Bag-(BazeMack.com).mp3',
             id : 'ozAfu01TQLwf',
@@ -758,23 +701,14 @@ const albums = [
             name : 'Deadz', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
-                 },
-                 {
-                    artist : '2 chainz',
-                    id : 'CsskaCRbtuJw'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
            ], 
-           
+           features : [  {
+            artist : '2 chainz',
+            id : 'CsskaCRbtuJw'
+         }],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/10-Migos-Deadz-ft-2-Chainz-(BazeMack.com).mp3',
             id : 'F3w8H8xifQst',
@@ -785,19 +719,11 @@ const albums = [
             name : 'All Ass', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
            ], 
-           
+             features : [],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/11-Migos-All-Ass-(BazeMack.com).mp3',
             id : 3748,
@@ -808,19 +734,15 @@ const albums = [
             name : 'Kelly Price', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
-                 },
-                 {
-                    artist : 'travis scott',
-                    id : 'LkapuHoV14Ka'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
+               
            ], 
-           
+            features : [  {
+                artist : 'travis scott',
+                id : 'LkapuHoV14Ka'
+             }],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/12-Migos-Kelly-Price-ft-Travis-Scott-(BazeMack.com).mp3',
             id : "F4GIOUajpsrP",
@@ -831,19 +753,11 @@ const albums = [
             name : 'Out Yo Way', 
             authors : [
                 {
-                    artist : 'quavo',
-                    id : 'dibbX1RgHFQB'
-                },
-                {
-                   artist : 'offset',
-                   id : 'CEp5JXIslkBf'
-                },
-                {
-                    artist : 'takeoff',
-                    id : 'SMuaSBXMmLej'
+                    artist : 'migos',
+                    id : '6g4ARBvMyxbP'
                  }
            ], 
-           
+            features : [],
             cover : '/data/albums/culture_1/culture_1.jpeg',
             src : '/data/albums/culture_1/13-Migos-Out-Yo-Way-(BazeMack.com).mp3',
             id : 'L0b7JE97rilJ',
@@ -853,13 +767,6 @@ const albums = [
           
           ]
       }
-
-
-
-
-  
-
-
 
  ]
  

@@ -1,468 +1,240 @@
-const playlists = [
-    { 
-      type : 'playlist',
-      playlistId : 12345,
-      playlist_name : 'This is Quavo', 
-      playlist_cover :'/data/covers/migos cover.jpg',
-      favorite : false, 
-      playlist_features : [
-        {
-          artist : 'quavo',
-          id : 'qua123'
-        },
-        {
-          artist : 'offset',
-          id : 'offset123'
-        },
-        {
-          artist : 'takeoff',
-          id : 'takeoff123'
-        },
-        {
-          artist : 'pop smoke',
-          id : 'popsmoke123'
-        },
-        {
-          artist : 'dababy',
-          id : 'dababy123'
-        },
-        {
-          artist : 'travis scott',
-          id : 'travisscott123'
-        }
-      ],
-      playlist_audios : [
-         
-         {
-           name : 'Us Vs Them', 
+const playlists = [ 
 
-           authors : [
-            {
-                artist : 'Gucci mane',
-                id : 'guccimane123'
-            },
-            {
-               artist : 'takeoff',
-               id : 'takeoff123'
-            },
-            {
-               artist : 'quavo',
-               id : 'qua123'
-            }
-          ], 
+ {
+   type : 'playlist',
+   playlist_cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
+   playlist_title : 'this is quavo',
+   playlist_id : 'BqcymDbouK4w',
+   playlist_features : [
+    {
+      artist : 'quavo',
+      id : 'dibbX1RgHFQB'
+   }, {
+    artist : 'offset',
+    id : 'CEp5JXIslkBf'
+   },{
+    artist : 'takeoff',
+    id : 'SMuaSBXMmLej'
+   },{
+    artist : 'gunna',
+    id : 'VSoiq8E4Lk34'
+   },{
+    artist : 'future',
+    id : 'CnIUoDmPKO1d'
+   }
+   ],
+   playlist_tracks : [
+    {
+      name : 'Fueled Up', 
 
-           cover : '/data/covers/530715-us-vs-them.jpg',
-           src : '/data/playlists/this_is_quavo/- Quavo & Takeoff Ft. Gucci Mane - Us vs. Them (Official Video) (128 kbps).mp3',
-           id : 7754,
-           favorite : false 
-         },
-         {
-            name : 'Aim For The Moon', 
-            authors : [
-            {
-                artist : 'quavo',
-                id : 'quavo123'
-            },
-            {
-                artist : 'pop smoke',
-                id : 'popsmoke123'
-            }
-          ], 
-        
-           cover : '/data/covers/183189-ric-flair-drip-2.jpg',
-           src : '/data/playlists/this_is_quavo/Aim for the Moon feat Quavo.mp3',
-           id : 8766,
-           favorite : false 
-         }, 
-         {
-           name : 'Pick Up', 
-           authors : [
-            {
-                artist : 'quavo',
-                id : 'quavo123'
-            },
-            {
-                artist : 'dababy',
-                id : 'dababy123'
-            }
-          ], 
-          
-           cover : '/data/covers/future mask off.jpg',
-           src : '/data/playlists/this_is_quavo/DaBaby_–_PICK_UP_FT._QUAVO.mp3',
-           id : 3748,
-           favorite : false 
-         },
-
-
-         {
-          name : 'Fucking Up Profits', 
-          authors : [
-           {
-               artist : 'quavo',
-               id : 'quavo123'
-           },
-           {
-               artist : 'offset',
-               id : 'offset123'
-           },
-           {
-               artist : 'takeoff',
-               id : 'takeoff123'
-           }
-         ], 
-         
-          cover : '/data/covers/future mask off.jpg',
-          src : '/data/playlists/this_is_quavo/Migos - _Fucking Up Profits_ (Official Audio) (128 kbps).mp3',
-          id : 3748,
-          favorite : false 
-        },
-       
-        {
-          name : 'Flooded', 
-          authors : [
-           {
-               artist : 'quavo',
-               id : 'quavo123'
-           },
-           {
-               artist : 'takeoff',
-               id : 'takeoff123'
-           },
-           {
-               artist : 'offset',
-               id : 'offset123'
-           }
-         ], 
-         
-          cover : '/data/covers/future mask off.jpg',
-          src : '/data/playlists/this_is_quavo/Migos - Flooded (Audio).mp3',
-          id : 3748,
-          favorite : false 
-        },
-
-        {
-          name : 'Too Much Jewelry', 
-          authors : [
-           {
-               artist : 'quavo',
-               id : 'quavo123'
-           },
-           {
-               artist : 'takeoff',
-               id : 'takeoff123'
-           }
-         ], 
-         
-          cover : '/data/covers/future mask off.jpg',
-          src : '/data/playlists/this_is_quavo/Migos - Too Much Jewelry .mp3',
-          id : 3748,
-          favorite : false 
-        },
-       
-        {
-          name : 'Pure Water', 
-          authors : [
-           {
-               artist : 'quavo',
-               id : 'quavo123'
-           },
-           {
-               artist : 'takeoff',
-               id : 'takeoff123'
-           },
-           {
-               artist : 'offset',
-               id : 'offset123'
-           }
-         ], 
-         
-          cover : '/data/covers/future mask off.jpg',
-          src : '/data/playlists/this_is_quavo/Migos Pure Water.mp3',
-          id : 3748,
-          favorite : false 
-        }
-       ,
-
+      authors : [
        {
-        name : 'How We Coming', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         },
-         {
-             artist : 'offset',
-             id : 'offset123'
-         },
-         {
-             artist : 'takeoff',
-             id : 'takeoff123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Migos_-_How_We_Coming_(Official_Audio)_(Culture_3_Deluxe)(256k).mp3',
-        id : 3748,
-        favorite : false 
-      },
-     
-       
+           artist : 'quavo',
+           id : 'dibbX1RgHFQB'
+       }
+     ], 
+
+      cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
+      src : '/data/albums/rocket_power/01-Quavo-Fueled-Up-(BazeMack.com).mp3',
+      id : "kUWQAfCgIong",
+      favorite : false 
+    }, {
+      name : 'Patty Cake', 
+      authors : [
+          {
+              artist : 'quavo',
+              id : 'dibbX1RgHFQB'
+          },
+          {
+              artist : 'takeoff',
+              id : 'SMuaSBXMmLej'
+           }
+    ], 
+  
+     cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
+     src : '/data/albums/rocket_power/02-Quavo-Patty-Cake-ft-Takeoff-(BazeMack.com).mp3',
+     id : "e4ElgCT5DqT9",
+     favorite : false 
+   },   {
+    name : 'Who Wit Me', 
+    authors : [
       {
-        name : 'Menace', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         },
-         {
-             artist : 'offset',
-             id : 'offset123'
-         },
-         {
-             artist : 'takeoff',
-             id : 'takeoff123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Migos_-_Menace_(Official_Audio)_(Culture_3_Deluxe)(256k).mp3',
-        id : 3748,
-        favorite : false 
-      },
-
-      {
-        name : 'Straightenin', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         },
-         {
-             artist : 'offset',
-             id : 'offset123'
-         },
-         {
-             artist : 'takeoff',
-             id : 'takeoff123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Migos_-_Straightenin_(Official_Video)(256k).mp3',
-        id : 3748,
-        favorite : false 
-      },
-
-      {
-        name : 'Modern Slavery', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         },
-         {
-             artist : 'travis scott',
-             id : 'travisscott123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Modern Slavery.mp3',
-        id : 3748,
-        favorite : false 
-      },
-
-      {
-        name : 'Hotel Lobby', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         },
-         {
-             artist : 'takeoff',
-             id : 'takeoff123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Quavo-Takeoff-HOTEL-LOBBY.mp3',
-        id : 3748,
-        favorite : false 
-      },
-     
-      
-      {
-        name : 'Rap Saved Me', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         },
-         {
-             artist : '21 Savage',
-             id : '21savage123'
-         },
-         {
-             artist : 'offset',
-             id : 'offset123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Rap Saved Me.mp3',
-        id : 3748,
-        favorite : false 
-      },
-     
-     
-      {
-        name : 'Shooters Inside My Crid', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Shooters inside my crib.m4a',
-        id : 3748,
-        favorite : false 
-      },
-
-
-      {
-        name : 'Stripper Bowl', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         },
-         {
-             artist : 'offset',
-             id : 'offset123'
-         },
-         {
-             artist : 'takeoff',
-             id : 'takeoff123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Stripper Bowl.mp3',
-        id : 3748,
-        favorite : false 
-      },
-
-
-      {
-        name : 'Taco Tuesday', 
-        authors : [
-         {
-             artist : 'quavo',
-             id : 'quavo123'
-         },
-         {
-             artist : 'offset',
-             id : 'offset123'
-         },
-         {
-             artist : 'takeoff',
-             id : 'takeoff123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/Taco Tuesday.mp3',
-        id : 3748,
-        favorite : false 
-      },
-
-      {
-        name : '2 Seater', 
-        authors : [
-         {
-             artist : 'ybn nahmir',
-             id : 'ybnnahmir123'
-         },
-         {
-             artist : 'G_Eazy',
-             id : 'geazy123'
-         },
-         {
-             artist : 'offset',
-             id : 'offset123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/YBN_Nahmir_-_2_Seater_(feat._G_Eazy_&_Offset)_[Official_Music_Video](128k).m4a',
-        id : 3748,
-        favorite : false 
-      },
-
-
-      {
-        name : 'Lick', 
-        authors : [
-         {
-             artist : 'offset',
-             id : 'offset123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/yt5s.com - Offset - Lick (Audio) (128 kbps).mp3',
-        id : 3748,
-        favorite : false 
-      },
-
-
-      {
-        name : 'Last Memory', 
-        authors : [
-         {
-             artist : 'takeoff',
-             id : 'takeoff123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/yt5s.com - Takeoff - Last Memory (HQ Audio) (128 kbps).mp3',
-        id : 3748,
-        favorite : false 
-      },
-
-      {
-        name : 'Danger', 
-        authors : [
-         {
-             artist : 'offset',
-             id : 'offset123'
-         },
-         {
-             artist : 'jid',
-             id : 'jid123'
-         }
-       ], 
-       
-        cover : '/data/covers/future mask off.jpg',
-        src : '/data/playlists/this_is_quavo/yt5s.io - Offset, JID - Danger (Spider) (Visualizer) (320 kbps).mp3',
-        id : 3748,
-        favorite : false 
+          artist : 'quavo',
+          id : 'dibbX1RgHFQB'
       }
-     
-     
-     
-     
-     
-     
-     
-        
-        ]
-    }
+   ], 
+   
+    cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
+    src : '/data/albums/rocket_power/04-Quavo-Who-Wit-Me-(BazeMack.com).mp3',
+    id : "KdmFKNRPZvRv",
+    favorite : false 
 
- ]
+   },  {
+    name : 'Wall To Wall', 
+    authors : [
+      {
+          artist : 'quavo',
+          id : 'dibbX1RgHFQB'
+      }
+   ], 
+   
+    cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
+    src : '/data/albums/rocket_power/08-Quavo-Wall-To-Wall-(BazeMack.com).mp3',
+    id : "QPkfKmDTW92Q",
+    favorite : false 
+
+   }, {
+    name : 'Turn Yo Clip Up', 
+    authors : [
+      {
+          artist : 'quavo',
+          id : 'dibbX1RgHFQB'
+      },
+      {
+          artist : 'future',
+          id : 'CnIUoDmPKO1d'
+       }
+   ], 
+   
+    cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
+    src : '/data/albums/rocket_power/09-Quavo-Turn-Yo-Clic-Up-ft-Future-(BazeMack.com).mp3',
+    id : 'libPqYCGl4wz',
+    favorite : false 
+
+   },  {
+    name : '11.11', 
+    authors : [
+      {
+          artist : 'quavo',
+          id : 'dibbX1RgHFQB'
+      }
+   ], 
+   
+    cover : '/data/albums/rocket_power/rocket_power_cover.jpeg',
+    src : '/data/albums/rocket_power/11-Quavo-1111-(BazeMack.com).mp3',
+    id : 'zZz6ctGGIbTi',
+    favorite : false 
+
+   },  {
+    name : 'Back To The Moon', 
+    authors : [
+      {
+          artist : 'gunna',
+          id : 'VSoiq8E4Lk34'
+       }
+  ], 
+
+   cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
+   src : '/data/albums/a_gift_&_a_curse/02-Gunna-back-to-the-moon-(BazeMack.com).mp3',
+   id : 'h5bit5uqA569',
+   favorite : false 
+ }, {
+  name : 'Fukumean', 
+  authors : [
+      {
+          artist : 'gunna',
+          id : 'VSoiq8E4Lk34'
+       }
+ ], 
  
- module.exports = playlists
+  cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
+  src : '/data/albums/a_gift_&_a_curse/06-Gunna-fukumean-(BazeMack.com).mp3',
+  id : 'jY8E197KNRc9',
+  favorite : false 
+
+ },    {
+  name : 'Rodeo Dr', 
+  authors : [
+      {
+          artist : 'gunna',
+          id : 'VSoiq8E4Lk34'
+       }
+ ], 
+ 
+  cover : '/data/albums/a_gift_&_a_curse/a_gift_&_curse_cover.jpeg',
+  src : '/data/albums/a_gift_&_a_curse/07-Gunna-rodeo-dr-(BazeMack.com).mp3',
+  id : 'yJivVmhkzdO1',
+  favorite : false 
+
+ },     {
+  name : 'T-Shirt', 
+  authors : [
+    {
+        artist : 'quavo',
+        id : 'dibbX1RgHFQB'
+    },
+    {
+       artist : 'offset',
+       id : 'CEp5JXIslkBf'
+    },
+    {
+        artist : 'takeoff',
+        id : 'SMuaSBXMmLej'
+     }
+], 
+
+ cover : '/data/albums/culture_1/culture_1.jpeg',
+ src : '/data/albums/culture_1/02-Migos-T-Shirt-(BazeMack.com).mp3',
+ id :'FpgIM1zun1qo',
+ favorite : false 
+},   {
+  name : 'Slippery', 
+  authors : [
+      {
+          artist : 'quavo',
+          id : 'dibbX1RgHFQB'
+      },
+      {
+         artist : 'offset',
+         id : 'CEp5JXIslkBf'
+      },
+      {
+          artist : 'takeoff',
+          id : 'SMuaSBXMmLej'
+       },
+       {
+          artist : 'gucci mane',
+          id : 'VSFnJ0KHm5J7'
+       }
+ ], 
+ 
+  cover : '/data/albums/culture_1/culture_1.jpeg',
+  src : '/data/albums/culture_1/06-Migos-Slippery-ft-Gucci-Mane-(BazeMack.com).mp3',
+  id : 'oDLt3NZL1SfF',
+  favorite : false 
+
+ }, {
+  name : 'Kelly Price', 
+  authors : [
+      {
+          artist : 'quavo',
+          id : 'dibbX1RgHFQB'
+      },
+      {
+          artist : 'takeoff',
+          id : 'SMuaSBXMmLej'
+       },
+       {
+          artist : 'travis scott',
+          id : 'LkapuHoV14Ka'
+       }
+ ], 
+ 
+  cover : '/data/albums/culture_1/culture_1.jpeg',
+  src : '/data/albums/culture_1/12-Migos-Kelly-Price-ft-Travis-Scott-(BazeMack.com).mp3',
+  id : "F4GIOUajpsrP",
+  favorite : false 
+
+ }
+   ]
+ }
+       
+ 
+
+
+
+
+
+]
+
+module.exports = playlists

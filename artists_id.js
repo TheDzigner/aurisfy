@@ -1,5 +1,8 @@
 const artists = [
-
+   {
+      artist : 'migos',
+      id : '6g4ARBvMyxbP'
+   },
   {
      artist : 'quavo',
      id : 'dibbX1RgHFQB'
