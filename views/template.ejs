@@ -141,9 +141,11 @@
         <div class="details">
 
           <% if ( data.type === 'playlist' ) { %>
+            <h3><%=data.type%></h3>
             <h5> <%=data.playlist_name%></h5>
             <p> <%=data.playlist_audios.length%> Songs </p>
            <% } else if (  data.type === 'album') { %>
+            <h3><%=data.type%></h3>
             <h5> <%=data.album_name%></h5>
             <p> <%=data.album_audios.length%> Songs </p>
            <%}%>
@@ -193,12 +195,17 @@
                       
                     </div>
                     <div class="actions_btn">
+                      <button class="play_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256">
+                          <path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path>
+                        </svg>
+                      </button>
                       <button class="favBtn">
                          <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
                          <path d="m480-121-41-37q-105.768-97.121-174.884-167.561Q195-396 154-451.5T96.5-552Q80-597 80-643q0-90.155 60.5-150.577Q201-854 290-854q57 0 105.5 27t84.5 78q42-54 89-79.5T670-854q89 0 149.5 60.423Q880-733.155 880-643q0 46-16.5 91T806-451.5Q765-396 695.884-325.561 626.768-255.121 521-158l-41 37Zm0-79q101.236-92.995 166.618-159.498Q712-426 750.5-476t54-89.135q15.5-39.136 15.5-77.72Q820-709 778-751.5T670.225-794q-51.524 0-95.375 31.5Q531-731 504-674h-49q-26-56-69.85-88-43.851-32-95.375-32Q224-794 182-751.5t-42 108.816Q140-604 155.5-564.5t54 90Q248-424 314-358t166 158Zm0-297Z"/>
                          </svg>
                       </button>
-                      <button class="shareBtn">
+                      <button class="shareBtn" data-id="<%=d.id%>">
                          <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
                          <path d="M727-80q-47.5 0-80.75-33.346Q613-146.693 613-194.331q0-6.669 1.5-16.312T619-228L316-404q-15 17-37 27.5T234-366q-47.5 0-80.75-33.25T120-480q0-47.5 33.25-80.75T234-594q23 0 44 9t38 26l303-174q-3-7.071-4.5-15.911Q613-757.75 613-766q0-47.5 33.25-80.75T727-880q47.5 0 80.75 33.25T841-766q0 47.5-33.25 80.75T727-652q-23.354 0-44.677-7.5T646-684L343-516q2 8 3.5 18.5t1.5 17.741q0 7.242-1.5 15Q345-457 343-449l303 172q15-14 35-22.5t46-8.5q47.5 0 80.75 33.25T841-194q0 47.5-33.25 80.75T727-80Zm.035-632Q750-712 765.5-727.535q15.5-15.535 15.5-38.5T765.465-804.5q-15.535-15.5-38.5-15.5T688.5-804.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5Zm-493 286Q257-426 272.5-441.535q15.5-15.535 15.5-38.5T272.465-518.5q-15.535-15.5-38.5-15.5T195.5-518.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5Zm493 286Q750-140 765.5-155.535q15.5-15.535 15.5-38.5T765.465-232.5q-15.535-15.5-38.5-15.5T688.5-232.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5ZM727-766ZM234-480Zm493 286Z"/>
                          </svg>
@@ -225,15 +232,21 @@
                         <a href="/artist/<%=a.id%>"> <%=a.artist%> </a> 
                          <%})%>
                      </div>
-                      
                     </div>
+                 
                     <div class="actions_btn">
+                        <button class="play_btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256">
+                        <path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path>
+                      </svg>
+                    </button>
+                 
                       <button class="favBtn">
                          <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
                          <path d="m480-121-41-37q-105.768-97.121-174.884-167.561Q195-396 154-451.5T96.5-552Q80-597 80-643q0-90.155 60.5-150.577Q201-854 290-854q57 0 105.5 27t84.5 78q42-54 89-79.5T670-854q89 0 149.5 60.423Q880-733.155 880-643q0 46-16.5 91T806-451.5Q765-396 695.884-325.561 626.768-255.121 521-158l-41 37Zm0-79q101.236-92.995 166.618-159.498Q712-426 750.5-476t54-89.135q15.5-39.136 15.5-77.72Q820-709 778-751.5T670.225-794q-51.524 0-95.375 31.5Q531-731 504-674h-49q-26-56-69.85-88-43.851-32-95.375-32Q224-794 182-751.5t-42 108.816Q140-604 155.5-564.5t54 90Q248-424 314-358t166 158Zm0-297Z"/>
                          </svg>
                       </button>
-                      <button class="shareBtn">
+                      <button class="shareBtn" data-id="<%=d.id%>">
                          <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
                          <path d="M727-80q-47.5 0-80.75-33.346Q613-146.693 613-194.331q0-6.669 1.5-16.312T619-228L316-404q-15 17-37 27.5T234-366q-47.5 0-80.75-33.25T120-480q0-47.5 33.25-80.75T234-594q23 0 44 9t38 26l303-174q-3-7.071-4.5-15.911Q613-757.75 613-766q0-47.5 33.25-80.75T727-880q47.5 0 80.75 33.25T841-766q0 47.5-33.25 80.75T727-652q-23.354 0-44.677-7.5T646-684L343-516q2 8 3.5 18.5t1.5 17.741q0 7.242-1.5 15Q345-457 343-449l303 172q15-14 35-22.5t46-8.5q47.5 0 80.75 33.25T841-194q0 47.5-33.25 80.75T727-80Zm.035-632Q750-712 765.5-727.535q15.5-15.535 15.5-38.5T765.465-804.5q-15.535-15.5-38.5-15.5T688.5-804.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5Zm-493 286Q257-426 272.5-441.535q15.5-15.535 15.5-38.5T272.465-518.5q-15.535-15.5-38.5-15.5T195.5-518.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5Zm493 286Q750-140 765.5-155.535q15.5-15.535 15.5-38.5T765.465-232.5q-15.535-15.5-38.5-15.5T688.5-232.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5ZM727-766ZM234-480Zm493 286Z"/>
                          </svg>
@@ -283,8 +296,9 @@
             const shuffleModeBtn = document.querySelector('.shuffleModeBtn');
             const audioName = document.querySelector('.audioName');
             const artists = document.querySelector('.artists');
-            const audio_cover = document.querySelector('.audio_cover img')
-            
+            const audio_cover = document.querySelector('.audio_cover img');
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || []
+
           let isPlaying = false 
           let currentIndex = 0
           let currentAudio = 0
@@ -338,75 +352,136 @@
            
         
           cards.forEach((card, index) => {
-            card.addEventListener('click', function(e) {
-              e.stopImmediatePropagation()
-              e.stopPropagation()
-              e.preventDefault()
-
+            const play_btn = card.querySelector('.play_btn');
             const favBtn = card.querySelector('.favBtn');
+            const shareBtn = card.querySelector('.shareBtn');
 
-            favBtn.addEventListener('click', function(){
+            favBtn.addEventListener('click',function(e){
+                         e.preventDefault()
+                        e.stopImmediatePropagation()
+                        e.stopPropagation()
+
+                        if (data.type === 'playlist') {
+                          const { name, src , authors, cover} = data.playlist_audios[index]
+                             addToFav(  name, src, authors, cover )
+                        }else if(data.type === 'album'){
+                          const { name, src , authors, cover} = data.album_audios[index]
+                             addToFav(  name, src, authors, cover )
+                        }
+                        
+            })
+            
+            shareBtn.addEventListener('click',function(e){
               e.preventDefault()
               e.stopImmediatePropagation()
               e.stopPropagation()
+              if (data.type === 'playlist') {
+                        const trackId = this.dataset.id 
+                       // console.log(trackId)
+                       shareTrack(trackId)
+                        }else if(data.type === 'album'){
+                          const trackId = this.dataset.id 
+                         shareTrack(trackId)
+                          //console.log(trackId)
+                        }
+
             })
+          
 
-            cards[currentIndex].classList.remove('active'); // Remove 'active' class from the previous card
-            currentIndex = index;
-            cards[currentIndex].classList.add('active'); // Add 'active' class to the clicked card
+             play_btn.addEventListener('click', function(e) {
+                        e.preventDefault()
+                        e.stopImmediatePropagation()
+                        e.stopPropagation()
+                       // console.log(e.target)
+                      
+                cards[currentIndex].classList.remove('active'); // Remove 'active' class from the previous card
+                cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
 
-              
-             if (data.type === 'playlist') {
+                     currentIndex = index;
 
-               audio.src = data.playlist_audios[currentIndex].src;
+                cards[currentIndex].classList.add('active'); // Add 'active' class to the clicked card
+                cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
-               const { name, src , authors, cover} = data.playlist_audios[currentIndex]
+                if (data.type === 'playlist') {
 
-                        audio.src = src
+                 audio.src = data.playlist_audios[currentIndex].src;
 
-                        audioName.innerHTML = name
+                 const { name, src , authors, cover} = data.playlist_audios[currentIndex]
 
-                        audio_cover.src = cover
-                        document.title = name
+                 audio.src = src
+
+                 audioName.innerHTML = name
+
+                 audio_cover.src = cover
+                 document.title = name
 
 
-                       artists.innerHTML = ''
+        artists.innerHTML = ''
 
-                       authors.forEach((a) => {
-                   
-                        artists.innerHTML += `<a href='/artist/${a.id}'> ${a.artist} </a>`
-                    // console.log(a.artist)
-                      })
-                        playAudio();
-                        checkState();
-  
-             } else if (data.type === 'album') {
+        authors.forEach((a) => {
+    
+         artists.innerHTML += `<a href='/artist/${a.id}'> ${a.artist} </a>`
+     // console.log(a.artist)
+       })
+         playAudio();
+         checkState();
 
-              audio.src = data.album_audios[currentIndex].src;
+        } else if (data.type === 'album') {
 
-               const { name, src , authors, cover} = data.album_audios[currentIndex]
+        audio.src = data.album_audios[currentIndex].src;
 
-                        audio.src = src
+        const { name, src , authors, cover} = data.album_audios[currentIndex]
 
-                        audioName.innerHTML = name
-                        document.title = name
+         audio.src = src
 
-                        audio_cover.src = cover
+         audioName.innerHTML = name
+         document.title = name
 
-                       artists.innerHTML = ''
+         audio_cover.src = cover
 
-                       authors.forEach((a) => {
-                   
-                        artists.innerHTML += `<a href='/artist/${a.id}'> ${a.artist} </a>`
-                    // console.log(a.artist)
-                      })
-             playAudio();
-             checkState();
-             }
+        artists.innerHTML = ''
+
+        authors.forEach((a) => {
+    
+         artists.innerHTML += `<a href='/artist/${a.id}'> ${a.artist} </a>`
+     // console.log(a.artist)
+       })
+          playAudio();
+          checkState();
+      }
+
+             
+      
 
   });
 
 });
+
+             function addToFav(name, src, authors, cover)
+             {
+               const data = {name,src,authors,cover}
+               favorites.push(data)
+              localStorage.setItem('favorites',JSON.stringify(favorites))
+             }
+
+           async function shareTrack(trackId){
+                    
+           const data = { 
+            title : `Sharing track with id : ${trackId}`,
+            url : `/track/${trackId}`
+           } 
+
+            try {
+             navigator.share(data)
+
+            } catch (error) {
+               alert('Your browser does not support web share api', error)
+            }
+
+
+             }
+
+
 
           function playNextBtn() {
  
@@ -417,10 +492,15 @@
               if (data.type === 'playlist') {
                 const randomIndex = Math.floor(Math.random() * data.playlist_audios.length)
 
-                cards.forEach((card) => card.classList.remove('active'));
+                cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
+                     
 
                 cards[randomIndex].classList.add('active')
-
+                cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
+                 
 
                 const { name, src , authors, cover} = data.playlist_audios[randomIndex]
 
@@ -445,11 +525,15 @@
 
                   const randomIndex = Math.floor(Math.random() * data.album_audios.length)
 
-                  cards.forEach((card) => card.classList.remove('active'));
+                  cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
+                     
            
                   cards[randomIndex].classList.add('active')
-
-
+                  cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
+                  
                   const { name, src , authors, cover} = data.album_audios[randomIndex]
 
                 audio.src = src
@@ -480,10 +564,15 @@
               if (data.type === 'playlist') {
             
                      currentIndex < data.playlist_audios.length -1 ? currentIndex++ : currentIndex = 0
-                       cards.forEach((card) => card.classList.remove('active'));
+                     cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
+                     
            
                        cards[currentIndex].classList.add('active')
-
+                       cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
+                       
                        const { name, src , authors, cover} = data.playlist_audios[currentIndex]
 
                         audio.src = src
@@ -509,9 +598,13 @@
 
               } else if (data.type === 'album') {
                        currentIndex < data.album_audios.length -1 ? currentIndex++ : currentIndex = 0
-                       cards.forEach((card) => card.classList.remove('active'));
-           
+                       cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
+                     
                        cards[currentIndex].classList.add('active')
+                       cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
 
                       const { name, src , authors, cover} = data.album_audios[currentIndex]
@@ -556,9 +649,13 @@
                   if (data.type === 'playlist') {
                const randomIndex = Math.floor(Math.random() * data.playlist_audios.length)
 
-                cards.forEach((card) => card.classList.remove('active'));
+               cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
 
                 cards[randomIndex].classList.add('active')
+                cards[randomIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
 
                 const { name, src , authors, cover} = data.playlist_audios[randomIndex]
@@ -585,10 +682,14 @@
 
                 const randomIndex = Math.floor(Math.random() * data.album_audios.length)
 
-                cards.forEach((card) => card.classList.remove('active'));
+                cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
 
                 cards[randomIndex].classList.add('active')
 
+                cards[randomIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
                 const { name, src , authors, cover} = data.album_audios[randomIndex]
 
@@ -620,9 +721,13 @@
                     
                     currentIndex > 0 ? currentIndex-- : currentIndex = data.playlist_audios.length -1 
  
-                    cards.forEach((card) => card.classList.remove('active'));
+                    cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
 
                     cards[currentIndex].classList.add('active')
+                    cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
 
                     const { name, src , authors, cover} = data.playlist_audios[currentIndex]
@@ -652,9 +757,13 @@
 
                     currentIndex > 0 ? currentIndex-- : currentIndex = data.album_audios.length -1 
  
-                    cards.forEach((card) => card.classList.remove('active'));
+                    cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
 
                     cards[currentIndex].classList.add('active')
+                    cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
 
                     const { name, src , authors, cover} = data.album_audios[currentIndex]
@@ -718,11 +827,13 @@
 
             if (audio.paused) {
                     audio.play()  
-                    cards[currentIndex].classList.add('active')              
+                    cards[currentIndex].classList.add('active');
+                    cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
                     playState.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35"><path d="M525-200v-560h235v560H525Zm-325 0v-560h235v560H200Zm385-60h115v-440H585v440Zm-325 0h115v-440H260v440Zm0-440v440-440Zm325 0v440-440Z"/></svg>'
             } else {
+                  audio.pause()
+                  cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
                    playState.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35"><path d="M320-203v-560l440 280-440 280Zm60-280Zm0 171 269-171-269-171v342Z"/></svg>'
-                    audio.pause()
             }
           }
         
@@ -737,10 +848,12 @@
 
                         if (data.type === 'playlist') {
                      const randomIndex = Math.floor(Math.random() * data.playlist_audios.length)
-                     cards.forEach((card) => card.classList.remove('active'));
-           
-                     cards[randomIndex].classList.add('active')
-
+                     cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
+                       cards[randomIndex].classList.add('active')
+                        cards[randomIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
                      const { name, src , authors} = data.playlist_audios[randomIndex]
 
@@ -763,9 +876,12 @@
 
                     } else if ( data.type === 'album') {
                      const randomIndex = Math.floor(Math.random() * data.album_audios.length)
-                     cards.forEach((card) => card.classList.remove('active'));
-           
-                     cards[randomIndex].classList.add('active')
+                     cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
+                       cards[randomIndex].classList.add('active')
+                      cards[randomIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
 
                      const { name, src , authors} = data.album_audios[randomIndex]
@@ -794,10 +910,13 @@
                      
                        if (data.type === 'playlist') {
                         currentIndex < data.playlist_audios.length -1 ? currentIndex++ : currentIndex = 0
-                       cards.forEach((card) => card.classList.remove('active'));
-           
+                        cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
                        cards[currentIndex].classList.add('active')
-
+        
+                       cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
                       const { name, src , authors} = data.playlist_audios[currentIndex]
 
@@ -821,10 +940,13 @@
                        } else if ( data.type === 'album') {
 
                         currentIndex < data.album_audios.length -1 ? currentIndex++ : currentIndex = 0
-                       cards.forEach((card) => card.classList.remove('active'));
-           
+                        cards.forEach((card) => {
+                        card.classList.remove('active');
+                        card.querySelector('.play_btn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></svg>'
+                       });
                        cards[currentIndex].classList.add('active')
-
+                     
+                     cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
 
                       const { name, src , authors, cover} = data.album_audios[currentIndex]
 

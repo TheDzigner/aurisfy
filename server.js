@@ -41,9 +41,13 @@ server.get('/track/:id', (req, res) => {
      const id = req.params.id 
 
      const findTrack = tracks.find((t) => t.id === id);
-
+   //  const author = tracks.filter((a) => a.authors ==)
+     console.log(findTrack)
     findTrack ? res.render('track_template', { findTrack }) : res.sendStatus(400);
 })
+
+
+
 
 server.get('/query', (req, res) => {
   const query = req.query.q 
