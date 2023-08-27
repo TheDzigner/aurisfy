@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/template.css">
-    <title>  </title>
+    <title> <%=title%> </title>
 </head>
 <body> 
     
@@ -413,24 +413,25 @@
                  audio.src = data.playlist_tracks[currentIndex].src;
 
                  const { name, src , authors, cover} = data.playlist_tracks[currentIndex]
+                
+                 document.title = name
 
                  audio.src = src
 
                  audioName.innerHTML = name
 
                  audio_cover.src = cover
-                 document.title = name
+
+                
 
 
-        artists.innerHTML = ''
+          artists.innerHTML = ''
 
-        authors.forEach((a) => {
-    
+          authors.forEach((a) => {
          artists.innerHTML += `<a href='/artist/${a.id}'> ${a.artist} </a>`
-     // console.log(a.artist)
-       })
+               })
          playAudio();
-         checkState();
+         checkState(name,artist,cover);
 
         } else if (data.type === 'album') {
 
@@ -438,11 +439,13 @@
 
         const { name, src , authors, cover} = data.album_audios[currentIndex]
 
+        const artist = data.album_authors[0].artist
+
          audio.src = src
 
          audioName.innerHTML = name
-         document.title = name
-
+    
+      
          audio_cover.src = cover
 
         artists.innerHTML = ''
@@ -453,7 +456,7 @@
      // console.log(a.artist)
        })
           playAudio();
-          checkState();
+          checkState(name,artist,cover);
       }
 
              
@@ -480,7 +483,8 @@
 
             // console.log(author)
            const data = { 
-            title : `Listening to ${name} by ${author.toLocaleUpperCase()}, on Aurisfy`,
+            title : `Give This A Listen, ${name} by ${author.toLocaleUpperCase()}.`,
+            text : `Listening to ${name} by ${author.toLocaleUpperCase()}, on Aurisfy.`,
             url : `/track/${trackId}`
            } 
           
@@ -548,7 +552,9 @@
                   cards[randomIndex].classList.add('active')
                   cards[currentIndex].querySelector('.play_btn').innerHTML =  '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
                   
-                  const { name, src , authors, cover} = data.album_audios[randomIndex]
+                const { name, src , authors, cover} = data.album_audios[randomIndex]
+                
+                document.title = name
 
                 audio.src = src
 
@@ -627,7 +633,7 @@
 
                        audioName.innerHTML = name 
 
-                        document.title = name
+                       document.title = 'hello'
 
                        audio_cover.src = cover
                        
@@ -825,13 +831,18 @@
 
 
           
-          function checkState()
+          function checkState(title,artist, cover)
           {
             if (!audio.paused) {
-              document.title = 'Aurisfy'
-              playState.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35"><path d="M525-200v-560h235v560H525Zm-325 0v-560h235v560H200Zm385-60h115v-440H585v440Zm-325 0h115v-440H260v440Zm0-440v440-440Zm325 0v440-440Z"/></svg>'
+              document.title = `${title} | ${artist.toLocaleUpperCase()}`
+               const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+               link.type = 'image/png';
+               link.rel = 'shortcut icon';
+               link.href = cover;
+               document.getElementsByTagName('head')[0].appendChild(link);
+              playState.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></svg>'
           }else{
-
+               document.title = 'Aurisfy'
               playState.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35"><path d="M320-203v-560l440 280-440 280Zm60-280Zm0 171 269-171-269-171v342Z"/></svg>'
           }
           }

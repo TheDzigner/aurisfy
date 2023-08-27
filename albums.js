@@ -550,6 +550,12 @@ const albums = [
         type : 'album',
         albumId : "jeqNkbQCpwfS",
         album_name : 'Culture 1', 
+        album_authors : [
+            {
+                artist : 'migos',
+                id : '6g4ARBvMyxbP'
+             }
+        ],
         album_cover :'/data/albums/culture_1/culture_1.jpeg',
         favorite : false, 
         album_audios : [

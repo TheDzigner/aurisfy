@@ -24,16 +24,22 @@ server.get('/playlist/:id', (req, res) => {
 
      const findPlaylist = playlists.find((p) => p.playlist_id === playlistID)
     console.log(findPlaylist)
-     res.render('template', { data : findPlaylist, title : `${findPlaylist.playlist_title}`})
+     res.render('template', { data : findPlaylist, title : `${findPlaylist.playlist_title.toLocaleUpperCase()} | Aurisfy Playlist`})
 
 })
+
 server.get('/album/:id', (req, res) => {
 
      const albumID = req.params.id
-
+     let author = ''
      const findAlbum = albums.find((p) => p.albumId === albumID)
+
     // console.log(findPlaylist)
-     res.render('template', { data : findAlbum, title : `${findAlbum.album_name}`})
+    const authors = findAlbum.album_authors.forEach((a) => {
+          author = a.artist
+    })
+      //console.log(findAlbum)
+     res.render('template', { data : findAlbum, title : `${author.toLocaleUpperCase()} | ${findAlbum.album_name}`})
 
 })
 
@@ -42,8 +48,8 @@ server.get('/track/:id', (req, res) => {
 
      const findTrack = tracks.find((t) => t.id === id);
    //  const author = tracks.filter((a) => a.authors ==)
-     console.log(findTrack)
-    findTrack ? res.render('track_template', { findTrack }) : res.sendStatus(400);
+    // console.log(findTrack)
+    findTrack ? res.render('track_template', { findTrack, title : `${findTrack.name} | Aurisfy` }) : res.sendStatus(400);
 })
 
 
