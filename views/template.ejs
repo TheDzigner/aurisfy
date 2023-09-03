@@ -368,11 +368,11 @@
                         e.stopPropagation()
 
                         if (data.type === 'playlist') {
-                          const { name, src , authors, cover} = data.playlist_tracks[index]
-                             addToFav(  name, src, authors, cover )
+                          const { name, src , authors, cover, id} = data.playlist_tracks[index]
+                             addToFav(  name, src, authors, cover, id )
                         }else if(data.type === 'album'){
-                          const { name, src , authors, cover} = data.album_audios[index]
-                             addToFav(  name, src, authors, cover )
+                          const { name, src , authors, cover, id} = data.album_audios[index]
+                             addToFav(  name, src, authors, cover,id )
                         }
                         
             })
@@ -466,9 +466,9 @@
 
 });
 
-             function addToFav(name, src, authors, cover)
+             function addToFav(name, src, authors, cover, id)
              {
-               const data = {name,src,authors,cover}
+               const data = {name,src,authors,cover, id}
                favorites.push(data)
               localStorage.setItem('favorites',JSON.stringify(favorites))
              }

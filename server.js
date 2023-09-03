@@ -52,6 +52,9 @@ server.get('/track/:id', (req, res) => {
     findTrack ? res.render('track_template', { findTrack, title : `${findTrack.name} | Aurisfy` }) : res.sendStatus(400);
 })
 
+server.get('/favorites', (req, res) => {
+     res.render('favorites');
+})
 
 
 

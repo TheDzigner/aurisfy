@@ -50,6 +50,10 @@ const artists = [
   {
      artist : 'travis scott',
      id : 'LkapuHoV14Ka'
+  },
+  {
+     artist : 'lil yatchy',
+     id : 'kra0jMfcoEI7'
   }
 
 ]

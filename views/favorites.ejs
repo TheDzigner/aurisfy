@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon/favicon.png" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/favorites.css">
+    <title> Aurisfy | Favorites </title>
+</head>
+<body> 
+    
+
+    <aside>
+       <button class="backHome">
+        <a href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
+            <path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z"/>
+          </svg>
+        </a>
+       </button>
+        <div class="playing_audio_card">
+          
+          <div class="audio_cover">
+            
+       
+            <img >
+         
+          </div>
+
+          <div class="audio_details">
+
+         
+              <a href="/track/" class="audioName"> </a>
+
+              <a href="" class="audioName">  </a>
+           
+
+
+             <div class="artists">
+              
+                 
+
+             </div>
+          </div>
+
+          <div class="progress_bar">
+            <div class="time loopBtn">
+             
+                <button class="loopAudioBtn">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15">
+                    <path d="M700-270v-130q0-13 8.5-21.5T730-430q13 0 21.5 8.5T760-401v161q0 13-8.5 21.5T730-210H236l64 64q10 10 10 22.5t-9 21.5q-9 9-21 9.5t-21-8.5L141-219q-9-9-9-21t9-21l117-117q9-9 21.5-9t21.5 9q9 9 9 21.5t-9 21.5l-65 65h464ZM260-690v130q0 13-8.5 21.5T230-530q-13 0-21.5-8.5T200-559v-161q0-13 8.5-21.5T230-750h494l-64-64q-9-9-9.5-22t8.5-22q9-9 21-9.5t21 8.5l118 118q9 9 9 21t-9 21L702-582q-9 9-21.5 9t-21.5-9q-9-9-9-21.5t9-21.5l65-65H260Z"/>
+                  </svg>
+                </button>
+                <button class="shuffleModeBtn">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15">
+                    <path d="M581-150v-60h125L522-393l42-43 186 184v-127h60v229H581Zm-389 0-42-43 558-558H581v-60h229v229h-60v-126L192-150Zm203-374L150-768l43-43 245 244-43 43Z"/>
+                  </svg>
+                </button>
+              
+            </div>
+            <input type="range" name="" id="audio_progress" value="0">
+          </div>
+
+            <div class="controls_btns">
+              <button class="prevBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35">
+                  <path d="M250-240q-13 0-21.5-8.5T220-270v-420q0-13 8.5-21.5T250-720q13 0 21.5 8.5T280-690v420q0 13-8.5 21.5T250-240Zm443-33L430-455q-13-9-13-25t13-25l263-182q15-11 31-2.5t16 26.5v366q0 18-16 26.5t-31-2.5Zm-13-207Zm0 125v-250L499-480l181 125Z"/>
+                </svg>
+              </button>
+              <button class="playState">
+                <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35">
+                  <path d="M320-203v-560l440 280-440 280Zm60-280Zm0 171 269-171-269-171v342Z"/>
+                </svg>
+              </button>
+              <button class="nextBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35">
+                  <path d="M709.825-240Q697-240 688.5-248.625T680-270v-420q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T740-690v420q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625ZM267-273q-15 11-31 2.25T220-297v-366q0-17.5 16-26.25t31 2.25l263 182q13 9.111 13 25.056Q543-464 530-455L267-273Zm13-207Zm0 125 181-125-181-125v250Z"/>
+                </svg>
+              </button>
+
+            
+                <audio  id="audio"></audio>
+         
+             
+
+
+            </div>
+
+        </div>
+      
+    
+    
+    
+      </aside>
+    
+
+      <section>
+
+     <div class="playlist_banner">
+
+        <div class="cover">
+            <img src="" alt="">
+        </div>
+
+
+
+        <div class="details">
+
+            <h3>Liked</h3>
+            <h5> Favorites </h5>
+            <p> 5 Songs </p>
+        
+          
+        </div>
+     </div>
+
+
+
+
+     <div class="cards_wrapper">
+  
+                <div class="card">
+                    <div class="card_details">
+                     <a href="/track/">  </a>
+    
+                     <div class="artists">
+                    
+                        <a href="/artist/">  </a> 
+                       
+                         
+                     </div>
+                      
+                    </div>
+                    <div class="actions_btn">
+                      <button class="play_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256">
+                          <path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path>
+                        </svg>
+                      </button>
+                      <button class="favBtn">
+                         <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
+                         <path d="m480-121-41-37q-105.768-97.121-174.884-167.561Q195-396 154-451.5T96.5-552Q80-597 80-643q0-90.155 60.5-150.577Q201-854 290-854q57 0 105.5 27t84.5 78q42-54 89-79.5T670-854q89 0 149.5 60.423Q880-733.155 880-643q0 46-16.5 91T806-451.5Q765-396 695.884-325.561 626.768-255.121 521-158l-41 37Zm0-79q101.236-92.995 166.618-159.498Q712-426 750.5-476t54-89.135q15.5-39.136 15.5-77.72Q820-709 778-751.5T670.225-794q-51.524 0-95.375 31.5Q531-731 504-674h-49q-26-56-69.85-88-43.851-32-95.375-32Q224-794 182-751.5t-42 108.816Q140-604 155.5-564.5t54 90Q248-424 314-358t166 158Zm0-297Z"/>
+                         </svg>
+                      </button>
+                      <button class="shareBtn">
+                         <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
+                         <path d="M727-80q-47.5 0-80.75-33.346Q613-146.693 613-194.331q0-6.669 1.5-16.312T619-228L316-404q-15 17-37 27.5T234-366q-47.5 0-80.75-33.25T120-480q0-47.5 33.25-80.75T234-594q23 0 44 9t38 26l303-174q-3-7.071-4.5-15.911Q613-757.75 613-766q0-47.5 33.25-80.75T727-880q47.5 0 80.75 33.25T841-766q0 47.5-33.25 80.75T727-652q-23.354 0-44.677-7.5T646-684L343-516q2 8 3.5 18.5t1.5 17.741q0 7.242-1.5 15Q345-457 343-449l303 172q15-14 35-22.5t46-8.5q47.5 0 80.75 33.25T841-194q0 47.5-33.25 80.75T727-80Zm.035-632Q750-712 765.5-727.535q15.5-15.535 15.5-38.5T765.465-804.5q-15.535-15.5-38.5-15.5T688.5-804.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5Zm-493 286Q257-426 272.5-441.535q15.5-15.535 15.5-38.5T272.465-518.5q-15.535-15.5-38.5-15.5T195.5-518.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5Zm493 286Q750-140 765.5-155.535q15.5-15.535 15.5-38.5T765.465-232.5q-15.535-15.5-38.5-15.5T688.5-232.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5ZM727-766ZM234-480Zm493 286Z"/>
+                         </svg>
+                      </button>
+                    </div>
+                 </div>
+    
+
+                <div class="card">
+                    <div class="card_details">
+                     <a href="/track/">  </a>
+    
+                     <div class="artists">
+                      
+                        <a href="/artist/">  </a> 
+                      
+                           <a href="/artist/"> </a> 
+                            
+                     </div>
+                    </div>
+                 
+                    <div class="actions_btn">
+                        <button class="play_btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0fffff" viewBox="0 0 256 256">
+                        <path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path>
+                      </svg>
+                    </button>
+                 
+                      <button class="favBtn">
+                         <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
+                         <path d="m480-121-41-37q-105.768-97.121-174.884-167.561Q195-396 154-451.5T96.5-552Q80-597 80-643q0-90.155 60.5-150.577Q201-854 290-854q57 0 105.5 27t84.5 78q42-54 89-79.5T670-854q89 0 149.5 60.423Q880-733.155 880-643q0 46-16.5 91T806-451.5Q765-396 695.884-325.561 626.768-255.121 521-158l-41 37Zm0-79q101.236-92.995 166.618-159.498Q712-426 750.5-476t54-89.135q15.5-39.136 15.5-77.72Q820-709 778-751.5T670.225-794q-51.524 0-95.375 31.5Q531-731 504-674h-49q-26-56-69.85-88-43.851-32-95.375-32Q224-794 182-751.5t-42 108.816Q140-604 155.5-564.5t54 90Q248-424 314-358t166 158Zm0-297Z"/>
+                         </svg>
+                      </button>
+                      <button class="shareBtn">
+                         <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25">
+                         <path d="M727-80q-47.5 0-80.75-33.346Q613-146.693 613-194.331q0-6.669 1.5-16.312T619-228L316-404q-15 17-37 27.5T234-366q-47.5 0-80.75-33.25T120-480q0-47.5 33.25-80.75T234-594q23 0 44 9t38 26l303-174q-3-7.071-4.5-15.911Q613-757.75 613-766q0-47.5 33.25-80.75T727-880q47.5 0 80.75 33.25T841-766q0 47.5-33.25 80.75T727-652q-23.354 0-44.677-7.5T646-684L343-516q2 8 3.5 18.5t1.5 17.741q0 7.242-1.5 15Q345-457 343-449l303 172q15-14 35-22.5t46-8.5q47.5 0 80.75 33.25T841-194q0 47.5-33.25 80.75T727-80Zm.035-632Q750-712 765.5-727.535q15.5-15.535 15.5-38.5T765.465-804.5q-15.535-15.5-38.5-15.5T688.5-804.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5Zm-493 286Q257-426 272.5-441.535q15.5-15.535 15.5-38.5T272.465-518.5q-15.535-15.5-38.5-15.5T195.5-518.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5Zm493 286Q750-140 765.5-155.535q15.5-15.535 15.5-38.5T765.465-232.5q-15.535-15.5-38.5-15.5T688.5-232.465q-15.5 15.535-15.5 38.5t15.535 38.465q15.535 15.5 38.5 15.5ZM727-766ZM234-480Zm493 286Z"/>
+                         </svg>
+                      </button>
+                    </div>
+                 </div>
+    
+      
+     
+     </div>
+
+
+      </section>
+
+
+
+     
+      
+
+</body>
+</html>
