@@ -17,6 +17,21 @@ const tracks = [
           favorite : false 
         },
         {
+            name : 'Tesla', 
+      
+            authors : [
+             {
+                 artist : 'lil yatchy',
+                 id : 'kra0jMfcoEI7'
+             }
+           ], 
+      
+            cover : '/data/playlists/this_is_quavo/playlist_covers/Lil Yachty - TESLA - cover.png',
+            src : '/data/playlists/this_is_quavo/Lil Yachty - TESLA (Directed by Cole Bennett)_fJ2N3PLjdro.mp3',
+            id : "YTDxXmBgrh4p",
+            favorite : false 
+          },
+        {
            name : 'Patty Cake', 
            authors : [
                {
